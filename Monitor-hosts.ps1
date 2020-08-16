@@ -16,13 +16,13 @@ if ( ( Test-Path (Split-Path $strHostsLastPath -Parent) ) -eq $false )
 
 if ( (Test-Path $strHostsLastPath) -eq $false ) # (Re) Initialize hash store file
 {
-    (Get-Hash C:\Windows\System32\drivers\etc\hosts -Algorithm SHA512).ToString() | Export-Clixml $strHostsLastPath
+    (Get-FileHash C:\Windows\System32\drivers\etc\hosts -Algorithm SHA512).ToString() | Export-Clixml $strHostsLastPath
     Set-ItemProperty $strHostsLastPath -Name IsReadOnly -Value $true
 }
 
 else # compare stored hash with current
 {
-        [string]$strHashNow = (Get-Hash C:\Windows\System32\drivers\etc\hosts -Algorithm SHA512).ToString()
+        [string]$strHashNow = (Get-FileHash C:\Windows\System32\drivers\etc\hosts -Algorithm SHA512).ToString()
         [xml]$xmlHashLast = gc $strHostsLastPath
         if ($xmlHashLast.Objs.S -ne $strHashNow)
         {
