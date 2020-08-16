@@ -1,4 +1,6 @@
-# Monitor-hosts.ps1. Best run as Scheduled Task at machine startup and repeated every 15 min. Is intended to detect changes even when you have not been online when your hosts has been tampered with.
+# Monitor-hosts.ps1. Best run as Scheduled Task at machine startup and repeated every 15 min.
+# Is intended to detect changes even when you have not been online when your hosts has been tampered with.
+# Do not run if you don't understand it.
 # ex.: <Command>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Command>
 #      <Arguments>-NoExit -NoProfile -ExecutionPolicy ByPass -File C:\util\Monitor-hosts.ps1</Arguments>
 
