@@ -27,12 +27,12 @@ else # compare stored hash with current
         if ($xmlHashLast.Objs.S -ne $strHashNow)
         {
             Add-Type -AssemblyName System.Windows.Forms
-            [string]$strMsg = "Check hosts, if you haven't edited hosts yourself in the last 15 min. Most likely hosts' hash has changed. If so, delete $strHostsLastPath (read-only) to reset this monitor."
+            [string]$strMsg = "Check your hosts file. If you haven't edited hosts yourself recently, it's likely hosts' hash has been changed by a third-party. If so, delete $strHostsLastPath (read-only) to reset this monitor."
             [string]$strTitle = "hosts monitor"
             $void = [System.Windows.Forms.MessageBox]::Show($strMsg,$strTitle,[System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Exclamation)
         }
         else
         {
-            "Hashs ident"
+            "Host file Hashes are identical"
         }
 }
